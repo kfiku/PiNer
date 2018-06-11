@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getScreens should work fine more advanced 1`] = `
+Array [
+  Object {
+    "first": true,
+    "height": 1440,
+    "port": "DP-2",
+    "width": 2560,
+    "x": 0,
+    "y": 716,
+  },
+  Object {
+    "height": 1440,
+    "port": "DP-4",
+    "width": 2560,
+    "x": 2560,
+    "y": 0,
+  },
+  Object {
+    "height": 1440,
+    "last": true,
+    "port": "DP-0",
+    "width": 2560,
+    "x": 5120,
+    "y": 459,
+  },
+]
+`;
+
+exports[`getScreens should work fine more advanced 2 1`] = `
+Array [
+  Object {
+    "first": true,
+    "height": 1440,
+    "port": "DP-2",
+    "width": 2560,
+    "x": 0,
+    "y": 0,
+  },
+  Object {
+    "height": 1440,
+    "port": "DP-4",
+    "width": 2560,
+    "x": 2560,
+    "y": 0,
+  },
+  Object {
+    "height": 1440,
+    "last": true,
+    "port": "DP-0",
+    "width": 2560,
+    "x": 5120,
+    "y": 0,
+  },
+]
+`;
+
+exports[`getScreens should work fine more advanced 3 1`] = `
+Array [
+  Object {
+    "first": true,
+    "height": 1440,
+    "port": "DP-2",
+    "width": 2560,
+    "x": 0,
+    "y": 630,
+  },
+  Object {
+    "height": 1440,
+    "port": "DP-4",
+    "width": 2560,
+    "x": 2560,
+    "y": 0,
+  },
+  Object {
+    "height": 1440,
+    "last": true,
+    "port": "DP-0",
+    "width": 2560,
+    "x": 5120,
+    "y": 1440,
+  },
+]
+`;
+
+exports[`getScreens should work fine simple 1`] = `
+Array [
+  Object {
+    "first": true,
+    "height": 1080,
+    "last": true,
+    "port": "HDMI-1",
+    "width": 1920,
+    "x": 0,
+    "y": 0,
+  },
+]
+`;
