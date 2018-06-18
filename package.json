@@ -11,7 +11,7 @@
   "scripts": {
     "test": "jest",
     "start": "nodemon --watch 'src/**/*.*' --exec 'electron .'",
-    "build": "ls",
+    "build": "build -l",
     "publish": "npm run build && build -l --publish always"
   },
   "build": {
