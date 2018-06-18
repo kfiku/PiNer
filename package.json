@@ -1,20 +1,64 @@
 {
   "name": "PiNer",
   "version": "1.0.0",
-  "description": "",
+  "description": "Resize your windows `Blazing Fast`",
+  "author": {
+    "name": "Grzegorz Klimek",
+    "email": "kfiku.com@gmail.com",
+    "url": "https://github.com/kfiku"
+  },
   "main": "src/main.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon --watch 'src/**/*.*' --exec 'electron .'"
+    "start": "nodemon --watch 'src/**/*.*' --exec 'electron .'",
+    "build": "ls",
+    "publish": "npm run build && build -l --publish always"
+  },
+  "build": {
+    "productName": "PiNer",
+    "appId": "org.kfiku.PiNer",
+    "files": [
+      "src/",
+      "node_modules/",
+      "package.json"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb"
+      ],
+      "category": "Utility"
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    }
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^2.0.2",
-    "xrandr": "^0.2.0"
   },
   "devDependencies": {
+    "electron": "^2.0.2",
+    "electron-builder": "^20.15.1",
     "jest": "^23.1.0",
     "nodemon": "^1.17.5"
   }

@@ -17,6 +17,7 @@ function createTray() {
     { label: 'CtrlOrCmd+super+alt+right : pin to right' },
     { label: 'CtrlOrCmd+super+alt+up : pin to top' },
     { label: 'CtrlOrCmd+super+alt+down : pin to bottom' },
+    { label: 'CtrlOrCmd+super+alt+m : maximize window' },
     { label: 'CtrlOrCmd+super+alt+= : increase the width' },
     { label: 'CtrlOrCmd+super+alt+- : decrease the width' },
     { label: 'Close application', click: () => app.quit() }
@@ -55,6 +56,12 @@ function createTray() {
     setWindowDimensions(win, nextDimensions);
   })
 
+  globalShortcut.register('CommandOrControl+Alt+Super+m', () => {
+    const win = getCurrentWindow();
+    const nextDimensions = getNextDimensions(win, screens, 'max');
+    setWindowDimensions(win, nextDimensions);
+  })
+
   // UP SIZE
   globalShortcut.register('CommandOrControl+Alt+Super+=', () => {
     const win = getCurrentWindow();
@@ -62,7 +69,7 @@ function createTray() {
     setWindowDimensions(win, nextDimensions);
   })
 
-  // DOWN SIZE
+  // MAX SIZE
   globalShortcut.register('CommandOrControl+Alt+Super+-', () => {
     const win = getCurrentWindow();
     const nextDimensions = getNextDimensions(win, screens, '-');

@@ -118,6 +118,15 @@ function getNextDimensions(window, screens, direction) {
         height: winScreen.height / 2 - heightFixer,
         horizontal: true
       }
+    case 'max':
+      return next = {
+        x: winScreen.x,
+        y: winScreen.y,
+        width: winScreen.width - widthFixer,
+        height: winScreen.height - heightFixer,
+        horizontal: true,
+        vertical: true
+      }
 
     default:
       break;
