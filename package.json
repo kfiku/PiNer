@@ -70,10 +70,10 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-    "electron": "^2.0.8",
     "iohook": "^0.2.0"
   },
   "devDependencies": {
+    "electron": "^2.0.8",
     "electron-builder": "^20.28.3",
     "jest": "^23.1.0",
     "nodemon": "^1.17.5"
