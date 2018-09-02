@@ -2,13 +2,20 @@ const { execSync } = require('child_process');
 
 function getCurrentWindow(currentWindowString) {
   if (!currentWindowString) {
-    const cmdXprop = `xprop -root | grep _NET_ACTIVE_WINDOW | head -1 | awk '{ print $5 }' | sed 's/,//' | sed 's/^0x/0x0/'`;
-    const currentWindowId = execSync(cmdXprop).toString().split('\n')[0];
+    const cmdXprop = `xprop -root | grep _NET_ACTIVE_WINDOW | head -1 | awk '{ print $5 }'`;
+    const cmdXpropResponse = execSync(cmdXprop).toString();
+    const currentWindowId = cmdXpropResponse.split(',')[0].substring(2)
     const cmdWmctrl = `wmctrl -lGp`;
-    const allWindows = execSync(cmdWmctrl).toString().split('\n')
+    const allWindows = execSync(cmdWmctrl)
+      .toString()
+      .split('\n')
       .filter(s => s);
 
     currentWindowString = allWindows.find(w => w.indexOf(currentWindowId) > -1);
+  }
+
+  if (!currentWindowString) {
+    return
   }
 
   const split = currentWindowString.split(/ +/)
