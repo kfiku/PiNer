@@ -7,14 +7,16 @@ function getNextScreen(screen, screens, direction = 1) {
 
 function isWindowInRightCorner(window, screen) {
   const diff = (window.x + window.width) - (screen.x + screen.width)
-  const isCorner = Math.abs(diff) < 3
+  const diffH = screen.height - window.height
+  const isCorner = Math.abs(diff) < 3 && Math.abs(diffH) < 100
   return isCorner
 }
 
 function isWindowInLeftCorner(window, screen) {
   const diff = window.x - screen.x
   const diffW = window.width - screen.width
-  const isCorner = Math.abs(diff) < 3 && Math.abs(diffW) > 10
+  const diffH = screen.height - window.height
+  const isCorner = Math.abs(diff) < 3 && Math.abs(diffW) > 10 && Math.abs(diffH) < 100
   return isCorner
 }
 
@@ -126,6 +128,35 @@ function getNextDimensions(window, screens, direction) {
         height: winScreen.height - heightFixer,
         horizontal: true,
         vertical: true
+      }
+
+    case 'upRight':
+      return next = {
+        x: winScreen.x + winScreen.width / 2,
+        y: winScreen.y,
+        width: winScreen.width / 2 - widthFixer,
+        height: winScreen.height / 2 - heightFixer
+      }
+    case 'upLeft':
+      return next = {
+        x: winScreen.x,
+        y: winScreen.y,
+        width: winScreen.width / 2 - widthFixer,
+        height: winScreen.height / 2 - heightFixer
+      }
+    case 'downRight':
+      return next = {
+        x: winScreen.x + winScreen.width / 2,
+        y: winScreen.y + winScreen.height / 2,
+        width: winScreen.width / 2 - widthFixer,
+        height: winScreen.height / 2 - heightFixer
+      }
+    case 'downLeft':
+      return next = {
+        x: winScreen.x,
+        y: winScreen.y + winScreen.height / 2,
+        width: winScreen.width / 2 - widthFixer,
+        height: winScreen.height / 2 - heightFixer
       }
 
     default:

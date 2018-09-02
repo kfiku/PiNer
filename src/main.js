@@ -1,11 +1,7 @@
-const { app, BrowserWindow, Tray, Menu, globalShortcut } = require('electron')
+const { app, Tray, Menu, globalShortcut } = require('electron')
 const path = require('path')
 
-const getCurrentWindow = require("./helpers/getCurrentWindow");
-const getScreens = require('./helpers/getScreens')
-const getNextDimensions = require('./helpers/getNextDimensions')
-const setWindowDimensions = require('./helpers/setWindowDimensions')
-
+const shorcuts = require('./shorcuts')
 const assetsDirectory = path.join(__dirname, 'assets')
 let mainWindow
 let tray
@@ -22,66 +18,10 @@ function createTray() {
     { label: 'CtrlOrCmd+super+alt+- : decrease the width' },
     { label: 'Close application', click: () => app.quit() }
   ])
-  tray.setToolTip('PiNer resize your windows `Blazing Fast`')
+  tray.setToolTip('PiNer resizes your windows `Blazing Fast`')
   tray.setContextMenu(contextMenu)
-  // tray.on('right-click', toggleWindow)
-  // tray.on('double-click', toggleWindow)
-  // tray.on('click', function (event, a, b) {
-  //   toggleWindow()
-  // })
 
-  const screens = getScreens();
-
-  globalShortcut.register('CommandOrControl+Alt+Super+Left', () => {
-    const win = getCurrentWindow();
-    const nextDimensions = getNextDimensions(win, screens, 'left');
-    setWindowDimensions(win, nextDimensions);
-  })
-
-  globalShortcut.register('CommandOrControl+Alt+Super+Right', () => {
-    const win = getCurrentWindow();
-    const nextDimensions = getNextDimensions(win, screens, 'right');
-    setWindowDimensions(win, nextDimensions);
-  })
-
-  globalShortcut.register('CommandOrControl+Alt+Super+Up', () => {
-    const win = getCurrentWindow();
-    const nextDimensions = getNextDimensions(win, screens, 'up');
-    setWindowDimensions(win, nextDimensions);
-  })
-
-  globalShortcut.register('CommandOrControl+Alt+Super+Down', () => {
-    const win = getCurrentWindow();
-    const nextDimensions = getNextDimensions(win, screens, 'down');
-    setWindowDimensions(win, nextDimensions);
-  })
-
-  globalShortcut.register('CommandOrControl+Alt+Super+m', () => {
-    const win = getCurrentWindow();
-    const nextDimensions = getNextDimensions(win, screens, 'max');
-    setWindowDimensions(win, nextDimensions);
-  })
-
-  // UP SIZE
-  globalShortcut.register('CommandOrControl+Alt+Super+=', () => {
-    const win = getCurrentWindow();
-    const nextDimensions = getNextDimensions(win, screens, '+');
-    setWindowDimensions(win, nextDimensions);
-  })
-
-  // MAX SIZE
-  globalShortcut.register('CommandOrControl+Alt+Super+-', () => {
-    const win = getCurrentWindow();
-    const nextDimensions = getNextDimensions(win, screens, '-');
-    setWindowDimensions(win, nextDimensions);
-  })
-
-
-  // STATS
-  globalShortcut.register('CommandOrControl+Alt+Super+s', () => {
-    const win = getCurrentWindow();
-    console.log(win);
-  })
+  shorcuts();
 }
 
 function createWindow() {

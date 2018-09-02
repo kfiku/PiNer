@@ -2,6 +2,21 @@
   "name": "PiNer",
   "version": "1.0.0",
   "description": "Resize your windows `Blazing Fast`",
+  "iohook": {
+    "targets": [
+      "node-59",
+      "electron-57"
+    ],
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "arches": [
+      "x64",
+      "ia32"
+    ]
+  },
   "author": {
     "name": "Grzegorz Klimek",
     "email": "kfiku.com@gmail.com",
@@ -55,10 +70,11 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
+    "electron": "^2.0.8",
+    "iohook": "^0.2.0"
   },
   "devDependencies": {
-    "electron": "^2.0.2",
-    "electron-builder": "^20.15.1",
+    "electron-builder": "^20.28.3",
     "jest": "^23.1.0",
     "nodemon": "^1.17.5"
   }
