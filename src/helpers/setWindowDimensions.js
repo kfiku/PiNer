@@ -28,8 +28,8 @@ function setWindowDimensions(window, dimensions) {
 
     const xDif = updatedWin.x - x
     const yDif = updatedWin.y - y
-    const newX = updatedWin.x
-    const newY = updatedWin.y
+    // const newX = updatedWin.x
+    // const newY = updatedWin.y
     const newWidth = width - xDif
     const newHeight = height - yDif
 
