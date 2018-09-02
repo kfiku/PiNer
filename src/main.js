@@ -37,36 +37,6 @@ function createWindow() {
   mainWindow.hide()
 }
 
-// const toggleWindow = () => {
-//   if (mainWindow.isVisible()) {
-//     mainWindow.hide()
-//   } else {
-//     showWindow()
-//   }
-// }
-
-// const getWindowPosition = () => {
-//   const windowBounds = mainWindow.getBounds()
-//   const trayBounds = tray.getBounds()
-//   console.log(trayBounds);
-//   // Center window horizontally below the tray icon
-//   const x = Math.round(trayBounds.x + (trayBounds.width / 2) - (windowBounds.width / 2))
-
-//   // Position window 4 pixels vertically below the tray icon
-//   const y = Math.round(trayBounds.y + trayBounds.height + 4)
-
-//   return { x: x, y: y }
-// }
-
-
-// const showWindow = () => {
-//   // const position = getWindowPosition()
-//   // mainWindow.setPosition(position.x, position.y, false)
-//   // mainWindow.show()
-//   // mainWindow.focus()
-// }
-
-
 app.on('will-quit', () => {
   globalShortcut.unregisterAll()
 })
