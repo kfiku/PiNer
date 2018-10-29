@@ -1,7 +1,7 @@
 const { app, Tray, Menu, globalShortcut } = require('electron')
 const path = require('path')
 
-const shorcuts = require('./shorcuts')
+const shortcuts = require('./shortcuts')
 const assetsDirectory = path.join(__dirname, 'assets')
 let mainWindow
 let tray
@@ -21,7 +21,7 @@ function createTray() {
   tray.setToolTip('PiNer resizes your windows `Blazing Fast`')
   tray.setContextMenu(contextMenu)
 
-  shorcuts();
+  shortcuts();
 }
 
 function createWindow() {
