@@ -1,10 +1,11 @@
 const { execSync } = require('child_process');
+const pad = require('pad-left');
 
 function getCurrentWindow(currentWindowString) {
   if (!currentWindowString) {
     const cmdXprop = `xprop -root | grep _NET_ACTIVE_WINDOW | head -1 | awk '{ print $5 }'`;
     const cmdXpropResponse = execSync(cmdXprop).toString();
-    const currentWindowId = cmdXpropResponse.split(',')[0].substring(2)
+    const currentWindowId = pad(cmdXpropResponse.split(',')[0].substring(2), 8, '0')
     const cmdWmctrl = `wmctrl -lGp`;
     const allWindows = execSync(cmdWmctrl)
       .toString()
