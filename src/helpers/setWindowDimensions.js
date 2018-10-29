@@ -11,7 +11,7 @@ function setWindowDimensions(window, dimensions) {
   }
   const { id } = window
   const { x, y, width, height, vertical, horizontal } = dimensions
-  // console.log('# WMCTRL', `${id} ${x} ${y} ${width}x${height}`)
+  console.log('# WMCTRL', `${id} ${x} ${y} ${width}x${height}`)
 
   if (!vertical) {
     execSync(`wmctrl -ir ${id} -b remove,maximized_vert`)
