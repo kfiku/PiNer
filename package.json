@@ -68,14 +68,14 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-    "iohook": "^0.2.1",
+    "iohook": "^0.3.1",
     "pad-left": "^2.1.0"
   },
   "devDependencies": {
     "electron": "^3.0.6",
     "electron-builder": "^20.29.0",
     "electron-rebuild": "^1.8.2",
-    "jest": "^23.6.0",
+    "jest": "^24.1.0",
     "nodemon": "^1.18.5"
   }
 }
