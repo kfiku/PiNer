@@ -4,8 +4,8 @@
   "description": "Resize your windows `Blazing Fast`",
   "iohook": {
     "targets": [
-      "node-64",
-      "electron-64"
+      "node-67",
+      "electron-69"
     ],
     "platforms": [
       "linux"
@@ -68,11 +68,11 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-    "iohook": "^0.3.1",
+    "iohook": "^0.4.0",
     "pad-left": "^2.1.0"
   },
   "devDependencies": {
-    "electron": "^3.0.6",
+    "electron": "^4.1",
     "electron-builder": "^20.29.0",
     "electron-rebuild": "^1.8.2",
     "jest": "^24.1.0",
