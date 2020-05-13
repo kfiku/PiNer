@@ -68,7 +68,7 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-    "iohook": "^0.4.0",
+    "iohook": "^0.6.5",
     "pad-left": "^2.1.0"
   },
   "devDependencies": {
